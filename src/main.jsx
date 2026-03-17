@@ -10,9 +10,6 @@ import './styles.css'
 // Initialize Bootstrap JS
 import * as bootstrap from 'bootstrap'
 
-// Initialize dayjs plugin
-dayjs.extend(customParseFormat)
-
 // Make dayjs and bootstrap globally available for utility functions
 window.dayjs = dayjs
 window.bootstrap = bootstrap

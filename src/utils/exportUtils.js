@@ -1,3 +1,5 @@
+import { locations } from '../data'
+
 // Export to plain text / CSV format
 export const exportToCSV = (selectedScreenings, onSuccess, onError) => {
   if (selectedScreenings.length === 0) {
@@ -5,9 +7,8 @@ export const exportToCSV = (selectedScreenings, onSuccess, onError) => {
     return
   }
 
-  // CSV format: Title,Date,Start Time,End Time,Duration (min),Location,Director,Category
-  const header =
-    'Title,Date,Start Time,End Time,Duration (min),Location,Director,Category'
+  // CSV format: Code,Title,LocationId,Start Time,
+  const header = 'Code,Title,LocationId,Start Time'
   const rows = selectedScreenings.map((s) => {
     // Escape commas and quotes in CSV format
     const escapeCSV = (str) => {
@@ -17,16 +18,7 @@ export const exportToCSV = (selectedScreenings, onSuccess, onError) => {
       return str
     }
 
-    return [
-      escapeCSV(s.title),
-      s.date,
-      s.startTime,
-      s.endTime,
-      s.durationMinutes,
-      s.locationId,
-      escapeCSV(s.director),
-      escapeCSV(s.subCat),
-    ].join(',')
+    return [s.sid, escapeCSV(s.title), s.locationId, s.startTime].join(',')
   })
 
   const csvContent = [header, ...rows].join('\n')
@@ -91,7 +83,10 @@ export const exportToICS = (selectedScreenings) => {
     const description = escapeICS(
       `Director: ${s.director}\nCategory: ${s.subCat}\nDuration: ${s.durationMinutes} minutes`
     )
-    const location = escapeICS(s.locationId)
+
+    const location = escapeICS(
+      locations.find((loc) => loc.id === s.locationId).name
+    )
 
     icsContent.push(
       'BEGIN:VEVENT',

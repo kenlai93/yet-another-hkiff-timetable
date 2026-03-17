@@ -147,7 +147,9 @@ export const DateNavigator = ({
                       style={{ cursor: 'pointer' }}
                     >
                       <div className="d-flex w-100 justify-content-between align-items-start">
-                        <h6 className="mb-1">{screening.title}</h6>
+                        <h6 className="mb-1">
+                          {screening.sid} {screening.title}
+                        </h6>
                         <button
                           type="button"
                           className="btn btn-sm btn-outline-danger"
@@ -163,15 +165,13 @@ export const DateNavigator = ({
                         </button>
                       </div>
                       <small className="text-muted">
-                        <i className="bi bi-calendar me-1"></i>
+                        <i className="bi bi-calendar mx-1"></i>
                         {formatShortDate(screening.date)}
-                        <span className="mx-2">•</span>
-                        <i className="bi bi-clock me-1"></i>
+                        <i className="bi bi-geo-alt mx-1"></i>
+                        {screening.locationId}
+                        <i className="bi bi-clock mx-1"></i>
                         {screening.startTime} - {screening.endTime} (
                         {screening.durationMinutes}min)
-                        <span className="ms-2 badge text-bg-secondary">
-                          {screening.locationId}
-                        </span>
                       </small>
                     </div>
                   </div>

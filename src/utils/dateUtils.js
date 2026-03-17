@@ -1,4 +1,8 @@
 import dayjs from 'dayjs'
+import customParseFormat from 'dayjs/plugin/customParseFormat.js'
+
+// Initialize dayjs plugin
+dayjs.extend(customParseFormat)
 
 export const minutesToTime = (minutes) => {
   return dayjs().startOf('day').add(minutes, 'minutes').format('HH:mm')

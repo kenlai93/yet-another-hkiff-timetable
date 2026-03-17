@@ -89,7 +89,9 @@ export const ScreeningBlock = ({
         </button>
       </div>
 
-      <div className="screening-helper-text">{screeningInfo.director}</div>
+      <div className="screening-helper-text">
+        {screeningInfo.director} {screeningInfo.sid}
+      </div>
       <div className="screening-helper-text">
         {screeningInfo.startTime} - {screeningInfo.endTime} (
         {screeningInfo.durationMinutes}mins)
