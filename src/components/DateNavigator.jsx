@@ -6,7 +6,6 @@ import { useScrollToHighlight } from '../utils/useScrollToHighlight.js'
 export const DateNavigator = ({
   dates,
   activeDate,
-  screeningCounts,
   selectedScreenings,
   onClearAll,
   onToggleScreening,
@@ -48,24 +47,25 @@ export const DateNavigator = ({
     onToggleScreening(screeningId, date)
   }
 
+  // Group screenings by date
+  const screeningsByDate = selectedScreenings.reduce((acc, screening) => {
+    if (!acc[screening.date]) {
+      acc[screening.date] = []
+    }
+    acc[screening.date].push(screening)
+    return acc
+  }, {})
+
+  const sortedDates = Object.keys(screeningsByDate).sort()
+
   return (
     <>
       <nav
         id="dateNavbar"
-        className="navbar navbar-expand-lg navbar-light bg-light sticky-top mb-4"
+        className="navbar navbar-expand navbar-light bg-light sticky-top mb-4"
       >
         <div className="container-fluid">
           <span className="navbar-brand">HKIFF50 Timetable</span>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               {dates.map((date) => (
@@ -76,12 +76,7 @@ export const DateNavigator = ({
                     }`}
                     href={`#date-${date}`}
                   >
-                    <div className="d-flex align-items-center ">
-                      <span className="">{formatShortDate(date)}</span>
-                      <span className="badge bg-info ms-1">
-                        {screeningCounts[date] || 0}
-                      </span>
-                    </div>
+                    {formatShortDate(date)}
                   </a>
                 </li>
               ))}
@@ -118,7 +113,10 @@ export const DateNavigator = ({
         style={{ visibility: showDrawer ? 'visible' : 'hidden' }}
       >
         <div className="offcanvas-header">
-          <h5 className="offcanvas-title">My Selections ({totalSelected})</h5>
+          <div>
+            <h5 className="offcanvas-title mb-0">My Selections ({totalSelected})</h5>
+            <small className="text-muted">Click any item to view on timetable</small>
+          </div>
           <button
             type="button"
             className="btn-close"
@@ -134,45 +132,57 @@ export const DateNavigator = ({
           ) : (
             <>
               <div
-                className="list-group h-100 p-2"
+                className="h-100"
                 style={{ paddingBottom: '80px' }}
               >
-                {selectedScreenings.map((screening) => (
-                  <div
-                    key={screening.sid}
-                    className="list-group-item list-group-item-action"
-                  >
-                    <div
-                      onClick={() => handleScrollToScreening(screening.sid)}
-                      style={{ cursor: 'pointer' }}
-                    >
-                      <div className="d-flex w-100 justify-content-between align-items-start">
-                        <h6 className="mb-1">
-                          {screening.sid} {screening.title}
-                        </h6>
-                        <button
-                          type="button"
-                          className="btn btn-sm btn-outline-danger"
-                          onClick={(e) =>
-                            handleRemoveScreening(
-                              e,
-                              screening.sid,
-                              screening.date
-                            )
-                          }
+                {sortedDates.map((date) => (
+                  <div key={date} className="mb-3">
+                    <div className="px-3 py-2 bg-light border-bottom sticky-top" style={{ top: 0 }}>
+                      <strong>
+                        {formatShortDate(date)}
+                        <span className="badge bg-info ms-2">
+                          {screeningsByDate[date].length}
+                        </span>
+                      </strong>
+                    </div>
+                    <div className="list-group list-group-flush">
+                      {screeningsByDate[date].map((screening) => (
+                        <div
+                          key={screening.sid}
+                          className="list-group-item list-group-item-action"
                         >
-                          <i className="bi bi-trash"></i>
-                        </button>
-                      </div>
-                      <small className="text-muted">
-                        <i className="bi bi-calendar mx-1"></i>
-                        {formatShortDate(screening.date)}
-                        <i className="bi bi-geo-alt mx-1"></i>
-                        {screening.locationId}
-                        <i className="bi bi-clock mx-1"></i>
-                        {screening.startTime} - {screening.endTime} (
-                        {screening.durationMinutes}min)
-                      </small>
+                          <div
+                            onClick={() => handleScrollToScreening(screening.sid)}
+                            style={{ cursor: 'pointer' }}
+                          >
+                            <div className="d-flex w-100 justify-content-between align-items-start">
+                              <h6 className="mb-1">
+                                {screening.title}
+                              </h6>
+                              <button
+                                type="button"
+                                className="btn btn-sm btn-outline-danger"
+                                onClick={(e) =>
+                                  handleRemoveScreening(
+                                    e,
+                                    screening.sid,
+                                    screening.date
+                                  )
+                                }
+                              >
+                                <i className="bi bi-trash"></i>
+                              </button>
+                            </div>
+                            <small className="text-muted">
+                              <i className="bi bi-geo-alt mx-1"></i>
+                              {screening.locationId}
+                              <i className="bi bi-clock mx-1"></i>
+                              {screening.startTime} - {screening.endTime} (
+                              {screening.durationMinutes}min)
+                            </small>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 ))}

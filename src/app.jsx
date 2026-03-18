@@ -9,15 +9,13 @@ const availableDates = [
 ]
 
 export const App = () => {
-  // Get unique dates from screenings (static data)
-
   const [activeDate, setActiveDate] = useState(availableDates[0])
 
   // Initialize state with restored data from localStorage or empty arrays
   const [occupiedTimesByDateMap, setOccupiedTimesByDateMap] = useState(() => {
     // Try to restore from localStorage
     const savedData = localStorage.getItem('selected-screenings')
-    
+
     if (savedData) {
       try {
         const savedSelections = JSON.parse(savedData)
@@ -146,18 +144,6 @@ export const App = () => {
     })
   }
 
-  const screeningCounts = useMemo(() => {
-    const counts = {}
-
-    availableDates.forEach((date) => {
-      counts[date] = selectedScreeningIdsByDateMap[date]
-        ? selectedScreeningIdsByDateMap[date].length
-        : 0
-    })
-
-    return counts
-  }, [availableDates, selectedScreeningIdsByDateMap])
-
   // Get all selected screenings with full data
   const selectedScreenings = useMemo(() => {
     const allSelectedIds = Object.values(selectedScreeningIdsByDateMap).flat()
@@ -187,7 +173,6 @@ export const App = () => {
       <DateNavigator
         dates={availableDates}
         activeDate={activeDate}
-        screeningCounts={screeningCounts}
         selectedScreenings={selectedScreenings}
         onClearAll={handleClearAll}
         onToggleScreening={handleToggleScreening}

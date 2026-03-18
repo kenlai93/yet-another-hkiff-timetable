@@ -110,8 +110,9 @@ export const ScreeningBlock = ({
             .join('<br/>')}
           onClick={handleJumpToOtherScreening}
         >
-          📋 Other screening
-          <i className="bi bi-box-arrow-up-right ms-1" />
+          <i className="bi bi-calendar-check me-1"></i>
+          {otherScreenings.length > 1 ? `${otherScreenings.length} more` : '1 more'}
+          <i className="bi bi-arrow-right ms-1"></i>
         </button>
       ) : (
         <button
