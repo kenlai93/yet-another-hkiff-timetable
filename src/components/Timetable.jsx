@@ -114,14 +114,18 @@ export const Timetable = ({ date, occupiedTimes, onToggleScreening }) => {
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
                     data-bs-html="true"
-                    data-bs-title={
-                      window.isTight
-                        ? `⚠️ Only ${window.gapMinutes}min gap between screenings (requires ${window.requiredTravelTime}min travel)`
-                        : `✓ ${window.gapMinutes}min gap between screenings (requires ${window.requiredTravelTime}min travel)`
-                    }
+                    data-bs-title={`
+                      ${window.isTight ? '<i class="bi bi-exclamation-triangle"></i>' : '<i class="bi bi-check-circle"></i>'}
+                      ${window.isTight ? 'Only' : ''} ${window.gapMinutes}min gap between screenings (requires ${window.requiredTravelTime}min travel)
+                    `}
                   >
                     <span className="travel-window-badge">
-                      {window.isTight ? '⚠️' : '✓'} {window.gapMinutes}min
+                      {window.isTight ? (
+                        <i className="bi bi-exclamation-triangle me-1"></i>
+                      ) : (
+                        <i className="bi bi-check-circle me-1"></i>
+                      )}
+                      {window.gapMinutes}min
                     </span>
                   </div>
                 )

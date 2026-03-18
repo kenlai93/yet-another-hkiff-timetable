@@ -67,7 +67,7 @@ export const ScreeningBlock = ({
       id={`screening-${screeningInfo.sid}`}
       className={`screening-block ${isSelected ? 'selected' : ''} ${
         isDisabled ? 'disabled' : ''
-      } p-2 d-flex flex-column`}
+      } p-3 d-flex flex-column`}
       style={{
         gridColumnStart: startColumn,
         gridColumnEnd: endColumn,
@@ -90,13 +90,13 @@ export const ScreeningBlock = ({
       </div>
 
       <div className="screening-helper-text">
-        {screeningInfo.director} {screeningInfo.sid}
+        {screeningInfo.sid}｜{screeningInfo.director}
       </div>
+      <div className="screening-helper-text">{screeningInfo.subCat}</div>
       <div className="screening-helper-text">
         {screeningInfo.startTime} - {screeningInfo.endTime} (
         {screeningInfo.durationMinutes}mins)
       </div>
-      <div className="screening-helper-text">{screeningInfo.subCat}</div>
 
       {otherScreenings.length > 0 ? (
         <button
@@ -111,7 +111,9 @@ export const ScreeningBlock = ({
           onClick={handleJumpToOtherScreening}
         >
           <i className="bi bi-calendar-check me-1"></i>
-          {otherScreenings.length > 1 ? `${otherScreenings.length} more` : '1 more'}
+          {otherScreenings.length > 1
+            ? `${otherScreenings.length} more`
+            : '1 more'}
           <i className="bi bi-arrow-right ms-1"></i>
         </button>
       ) : (
@@ -119,7 +121,8 @@ export const ScreeningBlock = ({
           type="button"
           className="screening-block-info-btn btn btn-sm w-100 text-start btn-outline-warning mt-auto"
         >
-          ⚠️ The only screening
+          <i className="bi bi-exclamation-triangle me-1"></i>
+          The only screening
         </button>
       )}
     </div>

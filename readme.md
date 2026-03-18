@@ -1,15 +1,17 @@
 # HKIFF50 Timetable
 
-A very simple film festival screening scheduler with conflict detection and export features. Can adjust your data set and apply for HKIFF50, 51, 52, summerIFF, HKAFF, clockflap so on and so on, 
+A very simple film festival screening scheduler with conflict detection and export features. Can adjust your data set and apply for HKIFF50, 51, 52, summerIFF, HKAFF, clockflap so on and so on,
 
 ![timetable](./assets/timetable.png)
 
 ## Other Similar Project
 
 ### Film Testable
+
 - https://filmfestable.com
 
 ### yellowcandle/hkiff-2026
+
 - https://hkiff.herballemon.dev
 - https://github.com/yellowcandle/hkiff-2026
 
