@@ -1,4 +1,5 @@
 import { useCallback } from 'react'
+import { HIGHLIGHT_DURATION_MS } from './constants'
 
 /**
  * Custom hook to scroll to an element and highlight it with a pulse animation
@@ -18,7 +19,7 @@ export const useScrollToHighlight = () => {
       targetElement.classList.add('highlight-pulse')
       setTimeout(() => {
         targetElement.classList.remove('highlight-pulse')
-      }, 2000)
+      }, HIGHLIGHT_DURATION_MS)
       
       return true
     }

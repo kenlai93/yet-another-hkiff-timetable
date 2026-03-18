@@ -57,3 +57,8 @@ export const HKIFF_DOMAIN = 'https://www.hkiff.org.hk'
 export const EARLIEST_MINUTES = 12 * 60 // 12:00 PM
 export const LATEST_MINUTES = 24 * 60 // 12:00 AM
 export const TOTAL_GRID_MINUTES = LATEST_MINUTES - EARLIEST_MINUTES
+
+// Highlight animation duration (in milliseconds)
+// Total duration: 3000ms = 1s per pulse × 3 iterations
+// Keep in sync with CSS animation in styles.css (.screening-block.highlight-pulse)
+export const HIGHLIGHT_DURATION_MS = 3000
