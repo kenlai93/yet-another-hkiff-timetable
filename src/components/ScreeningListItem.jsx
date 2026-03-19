@@ -1,7 +1,7 @@
 import React from 'react'
 import { formatShortDateWithDay } from '../utils/dateUtils.js'
 
-export const ScreeningListItem = ({
+export const ScreeningListItem = React.memo(({
   screening,
   onClick,
   showDirector = false,
@@ -60,4 +60,4 @@ export const ScreeningListItem = ({
       </div>
     </div>
   )
-}
+})

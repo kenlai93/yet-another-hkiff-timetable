@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useCallback, useMemo } from 'react'
 import {
   HKIFF_DOMAIN,
   EARLIEST_MINUTES,
@@ -8,7 +8,7 @@ import { SCREENING_DATA } from '../data/index.js'
 import { timeToMinutes } from '../utils/dateUtils.js'
 import { useScrollToHighlight } from '../utils/useScrollToHighlight.js'
 
-export const ScreeningBlock = ({
+export const ScreeningBlock = React.memo(({
   screeningInfo,
   isSelected,
   isDisabled,
@@ -27,12 +27,12 @@ export const ScreeningBlock = ({
     LATEST_MINUTES - EARLIEST_MINUTES + 1
   )
 
-  const toggleSelect = (e) => {
+  const toggleSelect = useCallback((e) => {
     e.stopPropagation()
     if (!isDisabled) {
       onToggleSelect(screeningInfo.sid)
     }
-  }
+  }, [isDisabled, onToggleSelect, screeningInfo.sid])
 
   const otherScreenings = useMemo(
     () =>
@@ -49,20 +49,20 @@ export const ScreeningBlock = ({
     [isSelected, otherScreenings, allSelectedScreeningIds]
   )
 
-  const handleJumpToOtherScreening = (e) => {
+  const handleJumpToOtherScreening = useCallback((e) => {
     e.stopPropagation()
     if (otherScreenings.length > 0) {
       scrollToHighlight(otherScreenings[0].sid)
     }
-  }
+  }, [otherScreenings, scrollToHighlight])
 
-  const handleGoDetailPage = (e) => {
+  const handleGoDetailPage = useCallback((e) => {
     e.stopPropagation()
     window.open(
       `${HKIFF_DOMAIN}/film/getdetail?fid=${screeningInfo.fid}`,
       '_blank'
     )
-  }
+  }, [screeningInfo.fid])
 
   const renderStatusIcon = () => {
     if (isSelected) return <i className="bi bi-check2-circle me-1" />
@@ -144,4 +144,4 @@ export const ScreeningBlock = ({
       )}
     </div>
   )
-}
+})

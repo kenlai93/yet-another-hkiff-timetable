@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { ScreeningBlock } from './ScreeningBlock.jsx'
 import { EARLIEST_MINUTES, LATEST_MINUTES } from '../utils/constants.js'
 
-export const LocationRow = ({
+export const LocationRow = React.memo(({
   location,
   screenings,
   occupiedTimes,
@@ -73,4 +73,4 @@ export const LocationRow = ({
       </div>
     </div>
   )
-}
+})

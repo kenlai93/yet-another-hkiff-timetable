@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { DateNavigator } from './components/DateNavigator.jsx'
 import { Timetable } from './components/Timetable.jsx'
 import { SCREENING_DATA } from './data/index.js'
@@ -52,7 +52,7 @@ export const App = () => {
   // Native scroll spy using IntersectionObserver
   useScrollSpy(setActiveDate)
 
-  const handleToggleScreening = (screeningId, date) => {
+  const handleToggleScreening = useCallback((screeningId, date) => {
     setSelectedScreeningIdsByDateMap((prevMap) => {
       const currentIds = prevMap[date] || []
       const isSelected = currentIds.includes(screeningId)
@@ -66,7 +66,7 @@ export const App = () => {
         [date]: updatedIds,
       }
     })
-  }
+  }, [])
 
   // Get all selected screenings with full data
   const selectedScreenings = useMemo(() => {
@@ -87,7 +87,7 @@ export const App = () => {
     [selectedScreeningIdsByDateMap]
   )
 
-  const handleClearAll = () => {
+  const handleClearAll = useCallback(() => {
     setSelectedScreeningIdsByDateMap(
       availableDates.reduce(
         (acc, date) => ({
@@ -97,7 +97,8 @@ export const App = () => {
         {}
       )
     )
-  }
+  }, [])
+
   return (
     <div>
       <DateNavigator

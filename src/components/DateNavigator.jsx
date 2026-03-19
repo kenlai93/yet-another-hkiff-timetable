@@ -21,7 +21,7 @@ export const DateNavigator = ({
   const [copySuccess, setCopySuccess] = useState(false)
   const scrollToHighlight = useScrollToHighlight()
 
-  const toggleDrawer = () => setShowDrawer(!showDrawer)
+  const toggleDrawer = useCallback(() => setShowDrawer(!showDrawer), [showDrawer])
 
   const totalSelected = selectedScreenings.length
 
@@ -33,50 +33,50 @@ export const DateNavigator = ({
     []
   )
 
-  const handleSearchInputChange = (e) => {
+  const handleSearchInputChange = useCallback((e) => {
     const value = e.target.value
     setSearchQuery(value)
     debouncedSetSearchQuery(value)
-  }
+  }, [debouncedSetSearchQuery])
 
-  const handleExportToCSV = () => {
+  const handleExportToCSV = useCallback(() => {
     exportToCSV(selectedScreenings, () => {
       setCopySuccess(true)
       setTimeout(() => setCopySuccess(false), 2000)
     })
-  }
+  }, [selectedScreenings])
 
-  const handleExportToICS = () => {
+  const handleExportToICS = useCallback(() => {
     exportToICS(selectedScreenings)
-  }
+  }, [selectedScreenings])
 
-  const handleClearAll = (e) => {
+  const handleClearAll = useCallback((e) => {
     e.preventDefault()
     if (confirm('This will clear all your selected screenings. Continue?')) {
       localStorage.removeItem('selected-screenings')
       onClearAll()
     }
-  }
+  }, [onClearAll])
 
-  const handleScrollToScreening = (screeningId) => {
+  const handleScrollToScreening = useCallback((screeningId) => {
     scrollToHighlight(screeningId)
     setShowDrawer(false)
-  }
+  }, [scrollToHighlight])
 
-  const handleRemoveScreening = (e, screeningId, date) => {
+  const handleRemoveScreening = useCallback((e, screeningId, date) => {
     e.stopPropagation()
     onToggleScreening(screeningId, date)
-  }
+  }, [onToggleScreening])
 
-  const handleSearch = () => {
+  const handleSearch = useCallback(() => {
     setShowSearchModal(true)
-  }
+  }, [])
 
-  const handleSearchResultClick = (screeningId) => {
+  const handleSearchResultClick = useCallback((screeningId) => {
     scrollToHighlight(screeningId)
     setShowSearchModal(false)
     setSearchQuery('')
-  }
+  }, [scrollToHighlight])
 
   // Filter screenings based on search query (title, director, subCat only)
   const searchResults = useMemo(() => {
@@ -94,15 +94,20 @@ export const DateNavigator = ({
   }, [debouncedSearchQuery])
 
   // Group screenings by date
-  const screeningsByDate = selectedScreenings.reduce((acc, screening) => {
-    if (!acc[screening.date]) {
-      acc[screening.date] = []
-    }
-    acc[screening.date].push(screening)
-    return acc
-  }, {})
+  const screeningsByDate = useMemo(() => {
+    return selectedScreenings.reduce((acc, screening) => {
+      if (!acc[screening.date]) {
+        acc[screening.date] = []
+      }
+      acc[screening.date].push(screening)
+      return acc
+    }, {})
+  }, [selectedScreenings])
 
-  const sortedDates = Object.keys(screeningsByDate).sort()
+  const sortedDates = useMemo(
+    () => Object.keys(screeningsByDate).sort(),
+    [screeningsByDate]
+  )
 
   return (
     <>

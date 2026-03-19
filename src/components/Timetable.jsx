@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react'
+import React, { useCallback, useEffect, useMemo } from 'react'
 import { SCREENING_DATA } from '../data/index.js'
 import {
   EARLIEST_MINUTES,
@@ -10,7 +10,7 @@ import { findTravelWindows } from '../utils/screeningUtils.js'
 import { LocationRow } from './LocationRow.jsx'
 import { TimeAxis } from './TimeAxis.jsx'
 
-export const Timetable = ({ date, occupiedTimes, allSelectedScreeningIds = [], onToggleScreening }) => {
+export const Timetable = React.memo(({ date, occupiedTimes, allSelectedScreeningIds = [], onToggleScreening }) => {
   // Filter screenings for the selected date
   const dayScreenings = useMemo(
     () =>
@@ -51,14 +51,14 @@ export const Timetable = ({ date, occupiedTimes, allSelectedScreeningIds = [], o
     }
   }, [travelWindows, occupiedTimes])
 
-  const handleClearSelection = (e) => {
+  const handleClearSelection = useCallback((e) => {
     e.stopPropagation()
     e.preventDefault()
 
     // Clear all occupied times for this date
     const screeningIds = occupiedTimes.map((o) => o.occupiedBy)
     screeningIds.forEach((sid) => onToggleScreening(sid, date))
-  }
+  }, [occupiedTimes, onToggleScreening, date])
 
   return (
     <>
@@ -146,4 +146,4 @@ export const Timetable = ({ date, occupiedTimes, allSelectedScreeningIds = [], o
       </div>
     </>
   )
-}
+})
