@@ -178,7 +178,7 @@ export const DateNavigator = ({
             onClick={toggleDrawer}
           ></button>
         </div>
-        <div className="offcanvas-body p-0">
+        <div className="offcanvas-body p-0 d-flex flex-column">
           {selectedScreenings.length === 0 ? (
             <div className="text-center text-muted py-5">
               <i className="bi bi-inbox" style={{ fontSize: '3rem' }}></i>
@@ -186,7 +186,7 @@ export const DateNavigator = ({
             </div>
           ) : (
             <>
-              <div className="h-100" style={{ paddingBottom: '80px' }}>
+              <div className="flex-grow-1 overflow-auto">
                 {sortedDates.map((date) => (
                   <div key={date} className="mb-3">
                     <div
