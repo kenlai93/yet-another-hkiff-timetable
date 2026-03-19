@@ -31,6 +31,10 @@ export const formatShortDate = (dateStr) => {
   return dayjs(dateStr).format('MMM D')
 }
 
+export const formatShortDateWithDay = (dateStr) => {
+  return dayjs(dateStr).format('MMM D (ddd)')
+}
+
 // Helper function to initialize Bootstrap tooltips
 export const initializeTooltips = () => {
   const tooltipTriggerList = document.querySelectorAll(

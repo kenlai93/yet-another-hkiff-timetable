@@ -3,6 +3,8 @@ import { DateNavigator } from './components/DateNavigator.jsx'
 import { Timetable } from './components/Timetable.jsx'
 import { SCREENING_DATA } from './data/index.js'
 import { initializeTooltips, timeToMinutes } from './utils/dateUtils.js'
+import { useScrollSpy } from './utils/useScrollSpy.js'
+import { useStoredScreenings } from './utils/useStoredScreenings.js'
 
 const availableDates = [
   ...new Set(SCREENING_DATA.screenings.map((screening) => screening.date)),
@@ -11,63 +13,31 @@ const availableDates = [
 export const App = () => {
   const [activeDate, setActiveDate] = useState(availableDates[0])
 
-  // Initialize state with restored data from localStorage or empty arrays
-  const [occupiedTimesByDateMap, setOccupiedTimesByDateMap] = useState(() => {
-    // Try to restore from localStorage
-    const savedData = localStorage.getItem('selected-screenings')
+  // Store selected screening IDs in localStorage
+  const [selectedScreeningIdsByDateMap, setSelectedScreeningIdsByDateMap] =
+    useStoredScreenings(availableDates)
 
-    if (savedData) {
-      try {
-        const savedSelections = JSON.parse(savedData)
-        const restoredOccupiedTimes = {}
-
-        Object.entries(savedSelections).forEach(([date, screeningIds]) => {
-          restoredOccupiedTimes[date] = screeningIds
-            .map((sid) => {
-              const screening = SCREENING_DATA.screenings.find(
-                (s) => s.sid === sid
-              )
-              if (!screening) return null
-              return {
-                occupiedBy: sid,
-                startTime: screening.startTime,
-                endTime: screening.endTime,
-              }
-            })
-            .filter(Boolean) // Remove nulls
-        })
-
-        return restoredOccupiedTimes
-      } catch (error) {
-        console.error('Error restoring selections from localStorage:', error)
-      }
-    }
-
-    // Default: empty arrays for all dates
-    return availableDates.reduce(
-      (acc, date) => ({
-        ...acc,
-        [date]: [],
-      }),
-      {}
-    )
-  })
-
-  // Derive selected screening IDs from occupied times
-  const selectedScreeningIdsByDateMap = useMemo(() => {
+  // Derive occupied times from selected screening IDs
+  const occupiedTimesByDateMap = useMemo(() => {
     const result = {}
-    Object.keys(occupiedTimesByDateMap).forEach((date) => {
-      result[date] = occupiedTimesByDateMap[date].map((o) => o.occupiedBy)
-    })
-    return result
-  }, [occupiedTimesByDateMap])
-
-  // Save selections to localStorage whenever they change
-  useEffect(() => {
-    localStorage.setItem(
-      'selected-screenings',
-      JSON.stringify(selectedScreeningIdsByDateMap)
+    Object.entries(selectedScreeningIdsByDateMap).forEach(
+      ([date, screeningIds]) => {
+        result[date] = screeningIds
+          .map((sid) => {
+            const screening = SCREENING_DATA.screenings.find(
+              (s) => s.sid === sid
+            )
+            if (!screening) return null
+            return {
+              occupiedBy: sid,
+              startTime: screening.startTime,
+              endTime: screening.endTime,
+            }
+          })
+          .filter(Boolean) // Remove nulls
+      }
     )
+    return result
   }, [selectedScreeningIdsByDateMap])
 
   // Initialize tooltips on mount for static elements
@@ -80,66 +50,20 @@ export const App = () => {
   }, [])
 
   // Native scroll spy using IntersectionObserver
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const topVisibleEntries = entries.find(
-          (entry) => entry.isIntersecting && entry.intersectionRatio > 0
-        )
-
-        if (topVisibleEntries) {
-          // Extract date from id="date-{date}"
-          const dateId = topVisibleEntries.target.id.replace('date-', '')
-
-          setActiveDate(dateId)
-        } else {
-          // Fallback: if no entries are visible and we're near the top, activate first date
-          if (window.scrollY < 200) {
-            setActiveDate(availableDates[0])
-          }
-        }
-      },
-      {
-        root: null, // viewport
-        rootMargin: '-100px 0px -60% 0px', // Offset for sticky navbar and bias towards top
-        threshold: 0,
-      }
-    )
-
-    // Observe all date sections
-    const dateSections = document.querySelectorAll('[id^="date-"]')
-    dateSections.forEach((section) => observer.observe(section))
-
-    return () => {
-      observer.disconnect()
-    }
-  }, [])
+  useScrollSpy(setActiveDate)
 
   const handleToggleScreening = (screeningId, date) => {
-    const selectedScreening = SCREENING_DATA.screenings.find(
-      (s) => s.sid === screeningId
-    )
+    setSelectedScreeningIdsByDateMap((prevMap) => {
+      const currentIds = prevMap[date] || []
+      const isSelected = currentIds.includes(screeningId)
 
-    setOccupiedTimesByDateMap((prevMap) => {
-      const currentOccupied = prevMap[date] || []
-      const isOccupied = currentOccupied.some(
-        ({ occupiedBy }) => occupiedBy === screeningId
-      )
-
-      const updatedOccupied = isOccupied
-        ? currentOccupied.filter((o) => o.occupiedBy !== screeningId)
-        : [
-            ...currentOccupied,
-            {
-              occupiedBy: screeningId,
-              startTime: selectedScreening.startTime,
-              endTime: selectedScreening.endTime,
-            },
-          ]
+      const updatedIds = isSelected
+        ? currentIds.filter((id) => id !== screeningId)
+        : [...currentIds, screeningId]
 
       return {
         ...prevMap,
-        [date]: updatedOccupied,
+        [date]: updatedIds,
       }
     })
   }
@@ -164,7 +88,7 @@ export const App = () => {
   )
 
   const handleClearAll = () => {
-    setOccupiedTimesByDateMap(
+    setSelectedScreeningIdsByDateMap(
       availableDates.reduce(
         (acc, date) => ({
           ...acc,

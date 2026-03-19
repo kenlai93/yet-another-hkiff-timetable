@@ -1,10 +1,11 @@
 import React, { useState, useMemo, useCallback } from 'react'
 import debounce from 'lodash.debounce'
-import { formatShortDate } from '../utils/dateUtils.js'
+import { formatShortDate, formatShortDateWithDay } from '../utils/dateUtils.js'
 import { exportToCSV, exportToICS } from '../utils/exportUtils.js'
 import { useScrollToHighlight } from '../utils/useScrollToHighlight.js'
 import { SCREENING_DATA } from '../data/index.js'
 import { ScreeningListItem } from './ScreeningListItem.jsx'
+import dayjs from 'dayjs'
 
 export const DateNavigator = ({
   dates,
@@ -108,6 +109,7 @@ export const DateNavigator = ({
       <nav
         id="dateNavbar"
         className="navbar navbar-expand navbar-light bg-light sticky-top mb-4"
+        style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}
       >
         <div className="container-fluid">
           <span className="navbar-brand">HKIFF50 Timetable</span>
@@ -116,12 +118,14 @@ export const DateNavigator = ({
               {dates.map((date) => (
                 <li className="nav-item" key={date}>
                   <a
-                    className={`nav-link mx-3 ${
+                    className={`nav-link mx-3 d-flex flex-column align-items-center ${
                       activeDate === date ? 'active' : ''
                     }`}
                     href={`#date-${date}`}
+                    style={{ lineHeight: '1.2' }}
                   >
-                    {formatShortDate(date)}
+                    <span>{formatShortDate(date)}</span>
+                    <small style={{ fontSize: '0.75rem' }}>{dayjs(date).format('ddd')}</small>
                   </a>
                 </li>
               ))}
@@ -194,7 +198,7 @@ export const DateNavigator = ({
                       style={{ top: 0 }}
                     >
                       <strong>
-                        {formatShortDate(date)}
+                        {formatShortDateWithDay(date)}
                         <span className="badge bg-info ms-2">
                           {screeningsByDate[date].length}
                         </span>

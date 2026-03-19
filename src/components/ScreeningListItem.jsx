@@ -1,5 +1,5 @@
 import React from 'react'
-import { formatShortDate } from '../utils/dateUtils.js'
+import { formatShortDateWithDay } from '../utils/dateUtils.js'
 
 export const ScreeningListItem = ({
   screening,
@@ -42,7 +42,7 @@ export const ScreeningListItem = ({
             {showDate && (
               <>
                 <i className="bi bi-calendar mx-1"></i>
-                {formatShortDate(screening.date)}
+                {formatShortDateWithDay(screening.date)}
               </>
             )}
             <i className="bi bi-geo-alt mx-1"></i>

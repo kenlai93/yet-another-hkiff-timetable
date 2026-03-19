@@ -5,7 +5,7 @@ import {
   LATEST_MINUTES,
   TOTAL_GRID_MINUTES,
 } from '../utils/constants.js'
-import { formatShortDate, initializeTooltips } from '../utils/dateUtils.js'
+import { formatShortDateWithDay, initializeTooltips } from '../utils/dateUtils.js'
 import { findTravelWindows } from '../utils/screeningUtils.js'
 import { LocationRow } from './LocationRow.jsx'
 import { TimeAxis } from './TimeAxis.jsx'
@@ -62,9 +62,7 @@ export const Timetable = ({ date, occupiedTimes, allSelectedScreeningIds = [], o
 
   return (
     <>
-      {/* Zero-height anchor for better scroll spy detection */}
-      <div id={`date-${date}`} style={{ height: 0 }}></div>
-      <div className="card my-3">
+      <div id={`date-${date}`} className="card my-3">
         <div className="card-header d-flex justify-content-between align-items-center">
           <button
             className="btn btn-link text-decoration-none flex-grow-1 text-start d-flex justify-content-between align-items-center"
@@ -74,7 +72,7 @@ export const Timetable = ({ date, occupiedTimes, allSelectedScreeningIds = [], o
             aria-expanded="true"
             aria-controls={collapseId}
           >
-            <span>{formatShortDate(date)}</span>
+            <span>{formatShortDateWithDay(date)}</span>
             <i className="bi bi-chevron-down"></i>
           </button>
           <button
