@@ -10,16 +10,56 @@ export const useScrollToHighlight = () => {
     const targetElement = document.querySelector(`#screening-${screeningId}`)
     
     if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      })
+      // Find the parent collapse element
+      const collapseElement = targetElement.closest('.collapse')
       
-      // Add highlight class
-      targetElement.classList.add('highlight-pulse')
-      setTimeout(() => {
-        targetElement.classList.remove('highlight-pulse')
-      }, HIGHLIGHT_DURATION_MS)
+      if (collapseElement) {
+        // Check if the collapse is not shown
+        if (!collapseElement.classList.contains('show')) {
+          // Get Bootstrap Collapse instance or create one
+          const bsCollapse = window.bootstrap.Collapse.getOrCreateInstance(collapseElement)
+          // Show the collapse
+          bsCollapse.show()
+          
+          // Wait for collapse animation to finish before scrolling
+          collapseElement.addEventListener('shown.bs.collapse', () => {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center',
+            })
+            
+            // Add highlight class
+            targetElement.classList.add('highlight-pulse')
+            setTimeout(() => {
+              targetElement.classList.remove('highlight-pulse')
+            }, HIGHLIGHT_DURATION_MS)
+          }, { once: true })
+        } else {
+          // Already shown, scroll immediately
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+          })
+          
+          // Add highlight class
+          targetElement.classList.add('highlight-pulse')
+          setTimeout(() => {
+            targetElement.classList.remove('highlight-pulse')
+          }, HIGHLIGHT_DURATION_MS)
+        }
+      } else {
+        // No parent collapse, scroll immediately
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        })
+        
+        // Add highlight class
+        targetElement.classList.add('highlight-pulse')
+        setTimeout(() => {
+          targetElement.classList.remove('highlight-pulse')
+        }, HIGHLIGHT_DURATION_MS)
+      }
       
       return true
     }
