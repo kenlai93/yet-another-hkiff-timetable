@@ -157,6 +157,12 @@ export const App = () => {
       })
   }, [selectedScreeningIdsByDateMap])
 
+  // Get all selected screening IDs across all dates
+  const allSelectedScreeningIds = useMemo(
+    () => Object.values(selectedScreeningIdsByDateMap).flat(),
+    [selectedScreeningIdsByDateMap]
+  )
+
   const handleClearAll = () => {
     setOccupiedTimesByDateMap(
       availableDates.reduce(
@@ -183,6 +189,7 @@ export const App = () => {
             key={date}
             date={date}
             occupiedTimes={occupiedTimesByDateMap[date] || []}
+            allSelectedScreeningIds={allSelectedScreeningIds}
             onToggleScreening={handleToggleScreening}
           />
         ))}

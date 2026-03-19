@@ -6,10 +6,11 @@ export const LocationRow = ({
   location,
   screenings,
   occupiedTimes,
+  allSelectedScreeningIds = [],
   onToggleScreening,
 }) => {
-  // Extract selected screening IDs from occupied times
-  const selectedScreeningIds = useMemo(
+  // Extract selected screening IDs from occupied times (current date only)
+  const selectedScreeningIdsForDate = useMemo(
     () => occupiedTimes.map((o) => o.occupiedBy),
     [occupiedTimes]
   )
@@ -54,7 +55,7 @@ export const LocationRow = ({
             key={screeningInfo.sid}
             screeningInfo={screeningInfo}
             isSelected={Boolean(
-              selectedScreeningIds.includes(screeningInfo.sid)
+              selectedScreeningIdsForDate.includes(screeningInfo.sid)
             )}
             isDisabled={occupiedTimes.some(
               ({ occupiedBy, startTime, endTime }) =>
@@ -65,6 +66,7 @@ export const LocationRow = ({
                   screeningInfo.startTime > endTime
                 )
             )}
+            allSelectedScreeningIds={allSelectedScreeningIds}
             onToggleSelect={onToggleScreening}
           />
         ))}

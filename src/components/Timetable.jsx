@@ -10,7 +10,7 @@ import { findTravelWindows } from '../utils/screeningUtils.js'
 import { LocationRow } from './LocationRow.jsx'
 import { TimeAxis } from './TimeAxis.jsx'
 
-export const Timetable = ({ date, occupiedTimes, onToggleScreening }) => {
+export const Timetable = ({ date, occupiedTimes, allSelectedScreeningIds = [], onToggleScreening }) => {
   // Filter screenings for the selected date
   const dayScreenings = useMemo(
     () =>
@@ -42,14 +42,14 @@ export const Timetable = ({ date, occupiedTimes, onToggleScreening }) => {
     return findTravelWindows(selectedScreeningsToday, dayScreenings)
   }, [occupiedTimes, dayScreenings])
 
-  // Reinitialize tooltips for dynamic travel-window highlights
+  // Reinitialize tooltips for dynamic travel-window highlights and status icons
   useEffect(() => {
     const tooltipList = initializeTooltips()
 
     return () => {
       tooltipList.forEach((tooltip) => tooltip.dispose())
     }
-  }, [travelWindows])
+  }, [travelWindows, occupiedTimes])
 
   const handleClearSelection = (e) => {
     e.stopPropagation()
@@ -137,6 +137,7 @@ export const Timetable = ({ date, occupiedTimes, onToggleScreening }) => {
                     location={location}
                     screenings={screenings}
                     occupiedTimes={occupiedTimes}
+                    allSelectedScreeningIds={allSelectedScreeningIds}
                     onToggleScreening={(sid) => onToggleScreening(sid, date)}
                   />
                 )

@@ -12,6 +12,7 @@ export const ScreeningBlock = ({
   screeningInfo,
   isSelected,
   isDisabled,
+  allSelectedScreeningIds = [],
   onToggleSelect,
 }) => {
   const scrollToHighlight = useScrollToHighlight()
@@ -41,6 +42,13 @@ export const ScreeningBlock = ({
     [screeningInfo.fid, screeningInfo.sid]
   )
 
+  const hasOtherScreeningSelected = useMemo(
+    () =>
+      !isSelected &&
+      otherScreenings.some((s) => allSelectedScreeningIds.includes(s.sid)),
+    [isSelected, otherScreenings, allSelectedScreeningIds]
+  )
+
   const handleJumpToOtherScreening = (e) => {
     e.stopPropagation()
     if (otherScreenings.length > 0) {
@@ -59,6 +67,15 @@ export const ScreeningBlock = ({
   const renderStatusIcon = () => {
     if (isSelected) return <i className="bi bi-check2-circle me-1" />
     if (isDisabled) return <i className="bi bi-ban me-1" />
+    if (hasOtherScreeningSelected)
+      return (
+        <i
+          className="bi bi-check-circle-fill me-1 text-success"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          data-bs-title="Another screening of this film is selected"
+        />
+      )
     return <i className="bi bi-circle me-1 text-muted" />
   }
 
