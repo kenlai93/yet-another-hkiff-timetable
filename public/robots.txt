@@ -1,0 +1,15 @@
+# Allow all legitimate search engine bots
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Block common spam/scraper bots
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: MJ12bot
+User-agent: DotBot
+User-agent: BLEXBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://kenlai93.github.io/yet-another-hkiff-timetable/sitemap.xml

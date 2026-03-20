@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=1200, initial-scale=0.3, minimum-scale=0.1, maximum-scale=2.0, user-scalable=yes" />
     <title>HKIFF50 Timetable</title>
     
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:;" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    
+    <!-- Canonical URL to prevent duplicate content -->
+    <link rel="canonical" href="https://kenlai93.github.io/yet-another-hkiff-timetable/" />
+    
     <!-- Open Graph meta tags -->
     <meta property="og:title" content="HKIFF50 Timetable" />
     <meta property="og:description" content="Interactive timetable for Hong Kong International Film Festival 50th edition. Plan your film screenings with travel time calculations." />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="HKIFF50 Timetable" />
+    <meta property="og:url" content="https://kenlai93.github.io/yet-another-hkiff-timetable/" />
   </head>
   <body>
     <div id="root"></div>

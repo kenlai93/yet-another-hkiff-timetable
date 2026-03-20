@@ -1,0 +1,4 @@
+Contact: https://github.com/kenlai93/yet-another-hkiff-timetable/issues
+Expires: 2027-03-20T00:00:00.000Z
+Preferred-Languages: en, zh
+Canonical: https://kenlai93.github.io/yet-another-hkiff-timetable/.well-known/security.txt
