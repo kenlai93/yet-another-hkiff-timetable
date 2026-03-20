@@ -123,7 +123,7 @@ export const DateNavigator = ({
               {dates.map((date) => (
                 <li className="nav-item" key={date}>
                   <a
-                    className={`nav-link mx-1 d-flex flex-column align-items-center ${
+                    className={`nav-link mx-2 d-flex flex-column align-items-center ${
                       activeDate === date ? 'active' : ''
                     }`}
                     href={`#date-${date}`}
