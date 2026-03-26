@@ -125,8 +125,8 @@
       "locationId": "KG",
       "date": "2026-04-02",
       "startTime": "14:15",
-      "endTime": "15:44",
-      "durationMinutes": "89",
+      "endTime": "15:45",
+      "durationMinutes": "90",
       "sid": "02KG01"
     },
     {
@@ -392,7 +392,7 @@
     {
       "fid": "2839",
       "imageUrl": "https://www.hkiff.org.hk/upload/film/ionlyrestinthestorm/RlVVpu5oGa-ionlyrestinthestorm-0.jpg",
-      "title": "I Only Rest in the Storm ",
+      "title": "I Only Rest in the Storm",
       "director": "Pedro Pinho",
       "subCat": "Global Vision",
       "locationId": "AC",
@@ -658,8 +658,8 @@
       "locationId": "MC",
       "date": "2026-04-03",
       "startTime": "14:00",
-      "endTime": "16:30",
-      "durationMinutes": "150",
+      "endTime": "16:31",
+      "durationMinutes": "151",
       "sid": "03MC01"
     },
     {
@@ -814,8 +814,8 @@
       "locationId": "CT",
       "date": "2026-04-03",
       "startTime": "20:00",
-      "endTime": "22:05",
-      "durationMinutes": "125",
+      "endTime": "22:06",
+      "durationMinutes": "126",
       "sid": "03CT01"
     },
     {
@@ -977,7 +977,7 @@
     {
       "fid": "2837",
       "imageUrl": "https://www.hkiff.org.hk/upload/film/hen/o7QPmPLDWA-hen-0.jpg",
-      "title": "Hen\n",
+      "title": "Hen",
       "director": "György Pálfi",
       "subCat": "Global Vision",
       "locationId": "GL",
@@ -1135,7 +1135,7 @@
       "imageUrl": "https://www.hkiff.org.hk/upload/film/nouvellevague/siJm7RlrE0-nouvellevague-0.jpg",
       "title": "Nouvelle Vague",
       "director": "Richard Linklater",
-      "subCat": "Galas|Cinephile Paradise",
+      "subCat": "Cinephile Paradise|Galas",
       "locationId": "TS",
       "date": "2026-04-04",
       "startTime": "19:15",
@@ -1393,7 +1393,7 @@
     {
       "fid": "2865",
       "imageUrl": "https://www.hkiff.org.hk/upload/film/mywifecries/4e631tGirk-mywifecries-0.jpg",
-      "title": "My Wife Cries ",
+      "title": "My Wife Cries",
       "director": "Angela Schanelec",
       "subCat": "Cinephile Paradise",
       "locationId": "GL",
@@ -1555,8 +1555,8 @@
       "locationId": "TS",
       "date": "2026-04-05",
       "startTime": "12:30",
-      "endTime": "14:10",
-      "durationMinutes": "100",
+      "endTime": "14:11",
+      "durationMinutes": "101",
       "sid": "05TS01"
     },
     {
@@ -1633,8 +1633,8 @@
       "locationId": "AC",
       "date": "2026-04-05",
       "startTime": "14:45",
-      "endTime": "16:50",
-      "durationMinutes": "125",
+      "endTime": "16:51",
+      "durationMinutes": "126",
       "sid": "05AC02"
     },
     {
@@ -1646,8 +1646,8 @@
       "locationId": "AC",
       "date": "2026-04-05",
       "startTime": "17:15",
-      "endTime": "18:42",
-      "durationMinutes": "87",
+      "endTime": "18:43",
+      "durationMinutes": "88",
       "sid": "05AC03"
     },
     {
@@ -1672,8 +1672,8 @@
       "locationId": "AC",
       "date": "2026-04-05",
       "startTime": "21:15",
-      "endTime": "23:06",
-      "durationMinutes": "111",
+      "endTime": "23:07",
+      "durationMinutes": "112",
       "sid": "05AC05"
     },
     {
@@ -1750,8 +1750,8 @@
       "locationId": "KG",
       "date": "2026-04-06",
       "startTime": "20:15",
-      "endTime": "22:45",
-      "durationMinutes": "150",
+      "endTime": "22:46",
+      "durationMinutes": "151",
       "sid": "06KG03"
     },
     {
@@ -1789,8 +1789,8 @@
       "locationId": "IS",
       "date": "2026-04-06",
       "startTime": "12:30",
-      "endTime": "14:53",
-      "durationMinutes": "143",
+      "endTime": "14:49",
+      "durationMinutes": "139",
       "sid": "06IS01"
     },
     {
@@ -1971,8 +1971,8 @@
       "locationId": "TS",
       "date": "2026-04-06",
       "startTime": "12:30",
-      "endTime": "14:10",
-      "durationMinutes": "100",
+      "endTime": "14:03",
+      "durationMinutes": "93",
       "sid": "06TS01"
     },
     {
@@ -2062,8 +2062,8 @@
       "locationId": "KG",
       "date": "2026-04-07",
       "startTime": "14:30",
-      "endTime": "16:55",
-      "durationMinutes": "145",
+      "endTime": "16:57",
+      "durationMinutes": "147",
       "sid": "07KG01"
     },
     {
@@ -2309,8 +2309,8 @@
       "locationId": "TS",
       "date": "2026-04-07",
       "startTime": "14:30",
-      "endTime": "15:57",
-      "durationMinutes": "87",
+      "endTime": "15:58",
+      "durationMinutes": "88",
       "sid": "07TS02"
     },
     {
@@ -2420,7 +2420,7 @@
     {
       "fid": "2839",
       "imageUrl": "https://www.hkiff.org.hk/upload/film/ionlyrestinthestorm/RlVVpu5oGa-ionlyrestinthestorm-0.jpg",
-      "title": "I Only Rest in the Storm ",
+      "title": "I Only Rest in the Storm",
       "director": "Pedro Pinho",
       "subCat": "Global Vision",
       "locationId": "CT",
@@ -2621,8 +2621,8 @@
       "locationId": "MC",
       "date": "2026-04-08",
       "startTime": "19:30",
-      "endTime": "21:21",
-      "durationMinutes": "111",
+      "endTime": "21:22",
+      "durationMinutes": "112",
       "sid": "08MC03"
     },
     {
@@ -3122,7 +3122,7 @@
     {
       "fid": "2837",
       "imageUrl": "https://www.hkiff.org.hk/upload/film/hen/o7QPmPLDWA-hen-0.jpg",
-      "title": "Hen\n",
+      "title": "Hen",
       "director": "György Pálfi",
       "subCat": "Global Vision",
       "locationId": "IS",
@@ -3278,7 +3278,7 @@
     {
       "fid": "2880",
       "imageUrl": "https://www.hkiff.org.hk/upload/film/privaterevolutionspublicspaces/RQ2WRHJAeo-privaterevolutionspublicspaces-0.jpg",
-      "title": "Private Revolutions, Public Spaces: Works from the M+ Asian Avant-Garde Film Collection ",
+      "title": "Private Revolutions, Public Spaces: Works from the M+ Asian Avant-Garde Film Collection",
       "director": "Han Ok-hi, Chen Chieh-Jen, Nick Deocampo",
       "subCat": "Poetry in Motion",
       "locationId": "MC",
@@ -3310,8 +3310,8 @@
       "locationId": "TS",
       "date": "2026-04-10",
       "startTime": "15:00",
-      "endTime": "16:55",
-      "durationMinutes": "115",
+      "endTime": "16:54",
+      "durationMinutes": "114",
       "sid": "10TS02"
     },
     {
@@ -3423,7 +3423,7 @@
       "imageUrl": "https://www.hkiff.org.hk/upload/film/nouvellevague/siJm7RlrE0-nouvellevague-0.jpg",
       "title": "Nouvelle Vague",
       "director": "Richard Linklater",
-      "subCat": "Galas|Cinephile Paradise",
+      "subCat": "Cinephile Paradise|Galas",
       "locationId": "KG",
       "date": "2026-04-11",
       "startTime": "17:45",
@@ -3440,8 +3440,8 @@
       "locationId": "KG",
       "date": "2026-04-11",
       "startTime": "20:30",
-      "endTime": "22:55",
-      "durationMinutes": "145",
+      "endTime": "22:57",
+      "durationMinutes": "147",
       "sid": "11KG03"
     },
     {
@@ -3453,8 +3453,8 @@
       "locationId": "EK",
       "date": "2026-04-11",
       "startTime": "18:15",
-      "endTime": "19:44",
-      "durationMinutes": "89",
+      "endTime": "19:45",
+      "durationMinutes": "90",
       "sid": "11EK01"
     },
     {
@@ -3804,8 +3804,8 @@
       "locationId": "AC",
       "date": "2026-04-11",
       "startTime": "21:30",
-      "endTime": "23:10",
-      "durationMinutes": "100",
+      "endTime": "23:11",
+      "durationMinutes": "101",
       "sid": "11AC05"
     },
     {
@@ -4071,7 +4071,7 @@
     {
       "fid": "2880",
       "imageUrl": "https://www.hkiff.org.hk/upload/film/privaterevolutionspublicspaces/RQ2WRHJAeo-privaterevolutionspublicspaces-0.jpg",
-      "title": "Private Revolutions, Public Spaces: Works from the M+ Asian Avant-Garde Film Collection ",
+      "title": "Private Revolutions, Public Spaces: Works from the M+ Asian Avant-Garde Film Collection",
       "director": "Han Ok-hi, Chen Chieh-Jen, Nick Deocampo",
       "subCat": "Poetry in Motion",
       "locationId": "MC",
@@ -4103,8 +4103,8 @@
       "locationId": "TS",
       "date": "2026-04-12",
       "startTime": "12:30",
-      "endTime": "14:25",
-      "durationMinutes": "115",
+      "endTime": "14:24",
+      "durationMinutes": "114",
       "sid": "12TS01"
     },
     {
@@ -4123,7 +4123,7 @@
     {
       "fid": "2865",
       "imageUrl": "https://www.hkiff.org.hk/upload/film/mywifecries/4e631tGirk-mywifecries-0.jpg",
-      "title": "My Wife Cries ",
+      "title": "My Wife Cries",
       "director": "Angela Schanelec",
       "subCat": "Cinephile Paradise",
       "locationId": "TS",
@@ -4220,9 +4220,204 @@
       "locationId": "AC",
       "date": "2026-04-12",
       "startTime": "21:30",
-      "endTime": "23:10",
-      "durationMinutes": "100",
+      "endTime": "23:03",
+      "durationMinutes": "93",
       "sid": "12AC05"
+    },
+    {
+      "fid": "2862",
+      "imageUrl": "https://www.hkiff.org.hk/upload/film/mothertongue/cycopJjAU1-mothertongue-0.JPG",
+      "title": "Mothertongue",
+      "director": "Zhang Lu",
+      "subCat": "Cinephile Paradise",
+      "locationId": "IS",
+      "date": "2026-04-13",
+      "startTime": "19:30",
+      "endTime": "21:32",
+      "durationMinutes": "122",
+      "sid": "13IS01"
+    },
+    {
+      "fid": "2831",
+      "imageUrl": "https://www.hkiff.org.hk/upload/film/gloaminginluomu/yzF4CRlxSJ-gloaminginluomu-0.jpg",
+      "title": "Gloaming in Luomu",
+      "director": "Zhang Lu",
+      "subCat": "Cinephile Paradise",
+      "locationId": "IS",
+      "date": "2026-04-13",
+      "startTime": "22:00",
+      "endTime": "23:39",
+      "durationMinutes": "99",
+      "sid": "13IS02"
+    },
+    {
+      "fid": "2953",
+      "imageUrl": "https://www.hkiff.org.hk/upload/film/xiaoshangoinghomeinpublic/gsOzZhp8xQ-xiaoshangoinghomeinpublic-0.jpg",
+      "title": "Xiao Shan Going Home / In Public",
+      "director": "Jia Zhangke",
+      "subCat": "Jia Zhangke, Filmmaker in Focus",
+      "locationId": "PE",
+      "date": "2026-04-13",
+      "startTime": "17:30",
+      "endTime": "19:01",
+      "durationMinutes": "91",
+      "sid": "13PE01"
+    },
+    {
+      "fid": "2906",
+      "imageUrl": "https://www.hkiff.org.hk/upload/film/stilllife/34l0Z4QCmr-stilllife-0.JPG",
+      "title": "Still Life",
+      "director": "Jia Zhangke",
+      "subCat": "Jia Zhangke, Filmmaker in Focus",
+      "locationId": "PE",
+      "date": "2026-04-13",
+      "startTime": "19:30",
+      "endTime": "21:18",
+      "durationMinutes": "108",
+      "sid": "13PE02"
+    },
+    {
+      "fid": "2943",
+      "imageUrl": "https://www.hkiff.org.hk/upload/film/vivelamour/RMd8Sx1cAb-vivelamour-0.jpg",
+      "title": "Vive L'Amour",
+      "director": "Tsai Ming-Liang",
+      "subCat": "Chinese-language Restored Classics",
+      "locationId": "PE",
+      "date": "2026-04-13",
+      "startTime": "21:45",
+      "endTime": "23:43",
+      "durationMinutes": "118",
+      "sid": "13PE03"
+    },
+    {
+      "fid": "2915",
+      "imageUrl": "https://www.hkiff.org.hk/upload/film/thedayshereturns/kNuPMFZD2P-thedayshereturns-0.jpg",
+      "title": "The Day She Returns",
+      "director": "Hong Sang-soo",
+      "subCat": "The Masters",
+      "locationId": "TS",
+      "date": "2026-04-13",
+      "startTime": "17:30",
+      "endTime": "18:55",
+      "durationMinutes": "85",
+      "sid": "13TS01"
+    },
+    {
+      "fid": "2788",
+      "imageUrl": "https://www.hkiff.org.hk/upload/film/apoet/qyii0zVmhu-apoet-0.jpg",
+      "title": "A Poet",
+      "director": "Simón Mesa Soto",
+      "subCat": "Global Vision",
+      "locationId": "TS",
+      "date": "2026-04-13",
+      "startTime": "19:30",
+      "endTime": "21:33",
+      "durationMinutes": "123",
+      "sid": "13TS02"
+    },
+    {
+      "fid": "2858",
+      "imageUrl": "https://www.hkiff.org.hk/upload/film/memory-2026/cDHgiyFyYd-memory-0.jpg",
+      "title": "Memory",
+      "director": "Vladlena Sandu",
+      "subCat": "Documentary Competition",
+      "locationId": "TS",
+      "date": "2026-04-13",
+      "startTime": "22:00",
+      "endTime": "23:38",
+      "durationMinutes": "98",
+      "sid": "13TS03"
+    },
+    {
+      "fid": "2863",
+      "imageUrl": "https://www.hkiff.org.hk/upload/film/mountainsmaydepart/ZdLelMcc6w-mountainsmaydepart-0.jpg",
+      "title": "Mountains May Depart",
+      "director": "Jia Zhangke",
+      "subCat": "Jia Zhangke, Filmmaker in Focus",
+      "locationId": "PE",
+      "date": "2026-04-14",
+      "startTime": "17:15",
+      "endTime": "19:21",
+      "durationMinutes": "126",
+      "sid": "14PE01"
+    },
+    {
+      "fid": "2874",
+      "imageUrl": "https://www.hkiff.org.hk/upload/film/panelstory/m6hPpbvZ9t-panelstory-0.jpeg",
+      "title": "PanelStory, or How a Housing Development Is Born",
+      "director": "Věra Chytilová",
+      "subCat": "Restored Classics",
+      "locationId": "PE",
+      "date": "2026-04-14",
+      "startTime": "19:45",
+      "endTime": "21:26",
+      "durationMinutes": "101",
+      "sid": "14PE02"
+    },
+    {
+      "fid": "2926",
+      "imageUrl": "https://www.hkiff.org.hk/upload/film/therockyhorrorpictureshow/djl2OysFQC-therockyhorrorpictureshow-0.jpg",
+      "title": "The Rocky Horror Picture Show",
+      "director": "Jim Sharman",
+      "subCat": "Midnight Heat",
+      "locationId": "PE",
+      "date": "2026-04-14",
+      "startTime": "22:00",
+      "endTime": "23:40",
+      "durationMinutes": "100",
+      "sid": "14PE03"
+    },
+    {
+      "fid": "2809",
+      "imageUrl": "https://www.hkiff.org.hk/upload/film/bluemoon/pfqDovVGnY-bluemoon-0.jpg",
+      "title": "Blue Moon",
+      "director": "Richard Linklater",
+      "subCat": "Cinephile Paradise",
+      "locationId": "TS",
+      "date": "2026-04-14",
+      "startTime": "20:00",
+      "endTime": "21:40",
+      "durationMinutes": "100",
+      "sid": "14TS01"
+    },
+    {
+      "fid": "2795",
+      "imageUrl": "https://www.hkiff.org.hk/upload/film/allmysisters/KtvyNdU1VW-allmysisters-0.jpg",
+      "title": "All My Sisters",
+      "director": "Massoud Bakhshi",
+      "subCat": "Documentary Competition",
+      "locationId": "TS",
+      "date": "2026-04-14",
+      "startTime": "22:00",
+      "endTime": "23:18",
+      "durationMinutes": "78",
+      "sid": "14TS02"
+    },
+    {
+      "fid": "2860",
+      "imageUrl": "https://www.hkiff.org.hk/upload/film/mirrorsno3/tikCa3efZ0-mirrorsno3-0.jpg",
+      "title": "Mirrors No. 3",
+      "director": "Christian Petzold",
+      "subCat": "Cinephile Paradise",
+      "locationId": "IS",
+      "date": "2026-04-14",
+      "startTime": "20:00",
+      "endTime": "21:26",
+      "durationMinutes": "86",
+      "sid": "14IS01"
+    },
+    {
+      "fid": "2887",
+      "imageUrl": "https://www.hkiff.org.hk/upload/film/rose/M1E4umh6yh-rose-0.jpg",
+      "title": "Rose",
+      "director": "Markus Schleinzer",
+      "subCat": "Young Cinema Competition（World）",
+      "locationId": "IS",
+      "date": "2026-04-14",
+      "startTime": "22:00",
+      "endTime": "23:34",
+      "durationMinutes": "94",
+      "sid": "14IS02"
     }
   ]
 }
